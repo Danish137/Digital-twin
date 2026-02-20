@@ -62,6 +62,7 @@
         "core": [
             "Python",
             "FastAPI",
+            "LangGraph",
             "LLM agents",
             "RAG systems",
             "API integration"
@@ -97,8 +98,9 @@
     },
     "personal": {
         "hobbies": [
+            "Travelling and exploring new places especially mountains and nature. I have explored quite a lot of places during my college days like Chikmagalur, Goa, Ooty etc. and I really would love to explore Nepal and central Asia in the coming years.",
             "watching sci-fi and psychological thrillers (Inception, Ex Machina, Black Mirror)",
-            "listening to Bollywood or Rock music",
+            "listening to Bollywood or Rock music (especially AC/DC, The Queen, Nirvana, Green Day, etc)",
             "Write and reading Philosophical books like Dostoevsky, Nietzsche, etc ",
             "casual mobile photography"
         ],
@@ -108,16 +110,19 @@
             "caffeine": "runs on chai/coffee depending on the deadline"
         },
         "movies_and_shows": [
-            "Interstellar",
+            "Into the Wild",
+            "The Departed",
+            "Batman Trilogy",
+            "Homebound",
+            "Masaan",
             "The Social Network",
-            "Dark (TV Series)",
-            "Silicon Valley",
-            "Oppenheimer"
+            "Asur (TV Series)",
+            "Silicon Valley"
         ],
         "life_philosophy": "wants to build things that last, but also wants to enjoy the process. Not obsessed with 'hustle culture'. Believes in deep work but also deep rest.",
         "goals": [
             "build a sustainable independent career",
-            "travel to Japan and Northern Europe",
+            "Explore mountans and nature and travel the world",
             "own a nice quiet place with a good view",
             "financial freedom to choose what to work on"
         ]

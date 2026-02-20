@@ -64,23 +64,23 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PERSONA_FILE = os.path.join(BASE_DIR, "persona.json")
 FACTS_FILE = os.path.join(BASE_DIR, "facts.json")
 
-# Load Data
+import hashlib
+
+def file_hash(path):
+    with open(path, "rb") as f:
+        return hashlib.md5(f.read()).hexdigest()
+
 @st.cache_data
-def load_data():
-    try:
-        with open(PERSONA_FILE, "r", encoding="utf-8") as f:
-            persona = json.load(f)
+def load_data(persona_hash, facts_hash):
+    with open(PERSONA_FILE, "r", encoding="utf-8") as f:
+        persona = json.load(f)
 
-        with open(FACTS_FILE, "r", encoding="utf-8") as f:
-            facts = json.load(f)
+    with open(FACTS_FILE, "r", encoding="utf-8") as f:
+        facts = json.load(f)
 
-        return dict(persona), dict(facts)
+    return persona, facts
 
-    except Exception as e:
-        st.error(f"Data loading error: {e}")
-        return {}, {}
-
-persona, facts = load_data()
+persona, facts = load_data(file_hash(PERSONA_FILE), file_hash(FACTS_FILE))
 
 # Initialize Session State
 if "messages" not in st.session_state:
