@@ -1,6 +1,10 @@
 # Talk to Danish - Voice Agent
 
 A high-fidelity conversational voice agent that acts as my digital twin. This project uses a hybrid architecture leveraging **Groq** for ultra-fast Whisper transcription, **GPT-4o-mini** for intelligence, and **ElevenLabs** for realistic voice synthesis.
+## 🧠 Talk to my AI twin
+Click below and speak:
+
+[Launch Live Demo]([https://your-streamlit-link](https://digital-twin-danish.streamlit.app/))
 
 
 ## ✨ Features
