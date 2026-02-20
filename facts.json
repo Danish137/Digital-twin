@@ -1,0 +1,96 @@
+{
+    "identity": {
+        "name": "Danish Akhtar",
+        "field": "AI / Machine Learning Engineering",
+        "focus": "applied AI systems and conversational agents"
+    },
+    "education": {
+        "degree": "B.E in Artificial Intelligence and Machine Learning",
+        "college": "JSS Academy of Technical Education , Bangalore",
+        "learning_style": "learned mostly by building real projects rather than coursework",
+        "college_roles": [
+            "core committee member in technical activities",
+            "helped coordinate department fest and events"
+        ]
+    },
+    "experience": {
+        "internships": [
+            {
+                "organization": "Inilax Corporate Services",
+                "type": "AI/ML internship",
+                "work": "built automated agentic workflows using LangChain and CrewAI and implemented optimized RAG pipelines with ChromaDB for factual grounding"
+            },
+            {
+                "organization": "NextMate",
+                "type": "founding team, content & product internship",
+                "work": "designed product features for an AI-assisted counseling platform and managed end-to-end content production in a zero-to-one startup environment"
+            }
+        ],
+        "open_source_contributions": [
+            {
+                "organization": "Bindu (AI Agent Infrastructure)",
+                "type": "technical open-source contribution",
+                "work": "contributed production-ready LangGraph multi-agent examples and designed supervisor-based state mapping for the runtime"
+            }
+        ],
+        "leadership_and_creative": [
+            {
+                "organization": "College Design & Video Teams",
+                "type": "creative leadership and content creation",
+                "work": "led video production and design initiatives while generating over 150K organic views through professional short-form storytelling"
+            }
+        ]
+    },
+    "projects": [
+        {
+            "name": "Cerina protocol foundary",
+            "category": "AI agent system",
+            "description": "a production-grade multi-agent CBT system for Clinical Purpose using a technical stack of Python, LangGraph, FastAPI, MCP and React. Implemented a Supervisor-Worker orchestration with a typed blackboard state for collaborative reasoning, featuring autonomous routing and human-in-the-loop safety approvals. The system is containerized with Docker on AWS EC2 and integrated with a Vercel frontend through real-time SSE streaming for live workflow monitoring."
+        },
+        {
+            "name": "RAG Agent — Retrieval-Aware QA System",
+            "category": "conversational AI",
+            "description": "engineered and built a four-node LangGraph RAG Agent using Python, ChromaDB, and Groq to create a high-performance, retrieval-aware QA system. The architecture utilizes semantic vector search with optimized chunking and conditional execution logic to ensure high-precision results while minimizing retrieval latency. Integrated RAGAs and an LLM-as-a-Judge framework to rigorously evaluate the system's faithfulness and relevance for production-level reliability."
+        },
+        {
+            "name": "Smart Medical Chatbot with Vision and Voice",
+            "category": "Medical Assistant",
+            "description": "developed a multimodal Smart Medical Chatbot using Meta Llama3 Vision 90B and GROQ to enable high-speed diagnostic image and text understanding. Integrated OpenAI Whisper and ElevenLabs to provide a seamless voice-to-voice interface, allowing users to interact naturally through speech. The system features a Gradio UI for medical image analysis and is deployed on Hugging Face Spaces for globally accessible, scalable inference."
+        }
+    ],
+    "skills": {
+        "core": [
+            "Python",
+            "FastAPI",
+            "LLM agents",
+            "RAG systems",
+            "API integration"
+        ],
+        "working_style": [
+            "system design thinking",
+            "focus on real use cases instead of demos",
+            "iterative building"
+        ]
+    },
+    "patterns": [
+        "usually observes before speaking in teams",
+        "prefers understanding systems before optimizing them",
+        "tends to connect technical decisions with human behavior",
+        "learns fastest by implementing rather than reading",
+        "focuses on long term correctness rather than quick hacks"
+    ],
+    "non_technical": {
+        "creative": [
+            "creates cinematic storytelling content",
+            "interested in capturing natural moments rather than staged ones"
+        ],
+        "interests": [
+            "human behavior",
+            "cinematic storytelling",
+            "technology adoption patterns"
+        ],
+        "perspective": [
+            "travel and observation shaped thinking about people and systems"
+        ]
+    }
+}

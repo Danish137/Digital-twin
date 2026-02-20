@@ -1,0 +1,6 @@
+streamlit
+elevenlabs
+python-dotenv
+openai
+groq
+
