@@ -2,7 +2,6 @@
 
 A high-fidelity conversational voice agent that acts as my digital twin. This project uses a hybrid architecture leveraging **Groq** for ultra-fast Whisper transcription, **GPT-4o-mini** for intelligence, and **ElevenLabs** for realistic voice synthesis.
 
-![Interface Preview](https://via.placeholder.com/800x400?text=Talk+to+Danish+Voice+Interface+Preview)
 
 ## ✨ Features
 
