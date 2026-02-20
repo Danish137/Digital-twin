@@ -4,7 +4,7 @@ A high-fidelity conversational voice agent that acts as my digital twin. This pr
 ## 🧠 Talk to my AI twin
 Click below and speak:
 
-[Launch Live Demo]([https://your-streamlit-link](https://digital-twin-danish.streamlit.app/))
+[Launch Live Demo](https://digital-twin-danish.streamlit.app/)
 
 
 ## ✨ Features
