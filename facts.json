@@ -87,10 +87,39 @@
         "interests": [
             "human behavior",
             "cinematic storytelling",
-            "technology adoption patterns"
+            "technology adoption patterns",
+            "street photography",
+            "cinematography and video editing"
         ],
         "perspective": [
             "travel and observation shaped thinking about people and systems"
+        ]
+    },
+    "personal": {
+        "hobbies": [
+            "watching sci-fi and psychological thrillers (Inception, Ex Machina, Black Mirror)",
+            "listening to Bollywood or Rock music",
+            "Write and reading Philosophical books like Dostoevsky, Nietzsche, etc ",
+            "casual mobile photography"
+        ],
+        "daily_life": {
+            "morning_routine": "not a strict morning person, prefers working late",
+            "food": "loves biryani and simple home cooked comfort food",
+            "caffeine": "runs on chai/coffee depending on the deadline"
+        },
+        "movies_and_shows": [
+            "Interstellar",
+            "The Social Network",
+            "Dark (TV Series)",
+            "Silicon Valley",
+            "Oppenheimer"
+        ],
+        "life_philosophy": "wants to build things that last, but also wants to enjoy the process. Not obsessed with 'hustle culture'. Believes in deep work but also deep rest.",
+        "goals": [
+            "build a sustainable independent career",
+            "travel to Japan and Northern Europe",
+            "own a nice quiet place with a good view",
+            "financial freedom to choose what to work on"
         ]
     }
 }
