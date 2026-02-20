@@ -1,31 +1,47 @@
 import streamlit as st
-import streamlit.components.v1 as components
 import os
 from dotenv import load_dotenv
 from openai import OpenAI
 from groq import Groq
 from elevenlabs.client import ElevenLabs
-import json
-import tempfile
 
-# Load environment variables
+# Load local .env (only affects local machine)
 load_dotenv()
 
-# Initialize Clients
-openai_api_key = os.getenv("OPENAI_API_KEY")
-elevenlabs_api_key = os.getenv("ELEVENLABS_API_KEY")
-openai_base_url = os.getenv("OPENAI_BASE_URL")
-groq_api_key = os.getenv("GROQ_API_KEY")
+def get_secret(key, default=None):
+    """
+    Priority:
+    1. Streamlit Cloud secrets
+    2. Local .env file
+    """
+    if key in st.secrets:
+        return st.secrets[key]
+    return os.getenv(key, default)
 
-if not openai_api_key or not elevenlabs_api_key or not groq_api_key:
-    st.error("API keys missing. Please check .env file for OPENAI, ELEVENLABS, and GROQ keys.")
+# Read keys
+openai_api_key = get_secret("OPENAI_API_KEY")
+elevenlabs_api_key = get_secret("ELEVENLABS_API_KEY")
+openai_base_url = get_secret("OPENAI_BASE_URL")
+groq_api_key = get_secret("GROQ_API_KEY")
+
+# Validate
+missing = []
+if not openai_api_key: missing.append("OPENAI_API_KEY")
+if not elevenlabs_api_key: missing.append("ELEVENLABS_API_KEY")
+if not groq_api_key: missing.append("GROQ_API_KEY")
+
+if missing:
+    st.error(f"Missing API keys: {', '.join(missing)}")
     st.stop()
 
+# Initialize clients
 client = OpenAI(
     api_key=openai_api_key,
     base_url=openai_base_url
 )
+
 groq_client = Groq(api_key=groq_api_key)
+
 elevenlabs_client = ElevenLabs(api_key=elevenlabs_api_key)
 
 
