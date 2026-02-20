@@ -1,21 +1,25 @@
+import json
 import streamlit as st
+import streamlit.components.v1 as components
 import os
 from dotenv import load_dotenv
 from openai import OpenAI
 from groq import Groq
 from elevenlabs.client import ElevenLabs
+import tempfile
 
 # Load local .env (only affects local machine)
 load_dotenv()
 
 def get_secret(key, default=None):
-    """
-    Priority:
-    1. Streamlit Cloud secrets
-    2. Local .env file
-    """
-    if key in st.secrets:
-        return st.secrets[key]
+    # Try Streamlit Cloud secrets safely
+    try:
+        if key in st.secrets:
+            return st.secrets[key]
+    except Exception:
+        pass
+
+    # Fallback to local .env
     return os.getenv(key, default)
 
 # Read keys
@@ -55,16 +59,25 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+PERSONA_FILE = os.path.join(BASE_DIR, "persona.json")
+FACTS_FILE = os.path.join(BASE_DIR, "facts.json")
+
 # Load Data
 @st.cache_data
 def load_data():
     try:
-        with open(PERSONA_FILE, "r") as f:
+        with open(PERSONA_FILE, "r", encoding="utf-8") as f:
             persona = json.load(f)
-        with open(FACTS_FILE, "r") as f:
+
+        with open(FACTS_FILE, "r", encoding="utf-8") as f:
             facts = json.load(f)
-        return persona, facts
-    except FileNotFoundError:
+
+        return dict(persona), dict(facts)
+
+    except Exception as e:
+        st.error(f"Data loading error: {e}")
         return {}, {}
 
 persona, facts = load_data()
@@ -608,7 +621,7 @@ if audio_value:
             os.remove(tmp_audio_path)
             
         except Exception as e:
-            st.error("Audio processing failed. Please try again.")
+            st.error(f"Audio processing failed: {e}")
             user_text = None
 
     if user_text and user_text.strip():
