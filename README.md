@@ -74,9 +74,10 @@ Click below and speak:
 ## 🎨 Design Philosophy
 
 The interface follows a "Conversation First" design:
+
 - **No distractions**: Header, footer, and sidebar are hidden.
 - **Focus**: The latest response is highlighted; older messages fade out.
 - **Interactivity**: A custom fixed microphone dock allows for single-tap interaction.
 - **Multi-turn conversation**: The agent can remember the context of the conversation and respond accordingly.
 
-## 📝 Feel free to contribute to this project or give suggestions to improve it.
+## 📝 NOTE: This is not a completed project , I am working on it.
