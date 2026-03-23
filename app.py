@@ -36,7 +36,7 @@ openai_audio_client = OpenAI(api_key=openai_api_key)
 groq_client = Groq(api_key=groq_api_key)
 
 async def _synthesize_speech(text: str) -> bytes:
-    communicate = edge_tts.Communicate(text, voice="en-US-AndrewNeural", rate="+15%", pitch="-3Hz")
+    communicate = edge_tts.Communicate(text, voice="en-US-AndrewNeural", rate="+5%", pitch="-3Hz")
     audio_buffer = io.BytesIO()
     async for chunk in communicate.stream():
         if chunk["type"] == "audio":
