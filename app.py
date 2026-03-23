@@ -636,16 +636,18 @@ if audio_value:
             try:
                 with open(tmp_audio_path, "rb") as audio_file:
                     transcription = groq_client.audio.transcriptions.create(
-                        model="whisper-large-v3-turbo",
+                        model="whisper-large-v3",
                         file=audio_file,
-                        response_format="text"
+                        response_format="text",
+                        language="en"
                     )
             except Exception as groq_err:
                 with open(tmp_audio_path, "rb") as audio_file:
                     transcription = openai_audio_client.audio.transcriptions.create(
                         model="whisper-1",
                         file=audio_file,
-                        response_format="text"
+                        response_format="text",
+                        language="en"
                     )
 
             user_text = transcription.text if hasattr(transcription, 'text') else str(transcription)
