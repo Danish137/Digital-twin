@@ -1,52 +1,48 @@
 import json
+import asyncio
+import io
+import os
+import hashlib
+import tempfile
 import streamlit as st
 import streamlit.components.v1 as components
-import os
 from dotenv import load_dotenv
 from openai import OpenAI
 from groq import Groq
-from elevenlabs.client import ElevenLabs
-import tempfile
+import edge_tts
 
-# Load local .env (only affects local machine)
 load_dotenv()
 
 def get_secret(key, default=None):
-    # Try Streamlit Cloud secrets safely
     try:
         if key in st.secrets:
             return st.secrets[key]
     except Exception:
         pass
-
-    # Fallback to local .env
     return os.getenv(key, default)
 
-# Read keys
 openai_api_key = get_secret("OPENAI_API_KEY")
-elevenlabs_api_key = get_secret("ELEVENLABS_API_KEY")
-openai_base_url = get_secret("OPENAI_BASE_URL")
 groq_api_key = get_secret("GROQ_API_KEY")
 
-# Validate
 missing = []
 if not openai_api_key: missing.append("OPENAI_API_KEY")
-if not elevenlabs_api_key: missing.append("ELEVENLABS_API_KEY")
 if not groq_api_key: missing.append("GROQ_API_KEY")
 
 if missing:
     st.error(f"Missing API keys: {', '.join(missing)}")
     st.stop()
 
-# Initialize clients
-client = OpenAI(
-    api_key=openai_api_key,
-    base_url=openai_base_url
-)
-
+openai_audio_client = OpenAI(api_key=openai_api_key)
 groq_client = Groq(api_key=groq_api_key)
 
-elevenlabs_client = ElevenLabs(api_key=elevenlabs_api_key)
+async def _synthesize_speech(text: str) -> bytes:
+    communicate = edge_tts.Communicate(text, voice="en-US-AndrewNeural", rate="+15%", pitch="-3Hz")
+    audio_buffer = io.BytesIO()
+    async for chunk in communicate.stream():
+        if chunk["type"] == "audio":
+            audio_buffer.write(chunk["data"])
+    audio_buffer.seek(0)
+    return audio_buffer.read()
 
 
 PERSONA_FILE = "persona.json"
@@ -60,11 +56,8 @@ st.set_page_config(
 )
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
 PERSONA_FILE = os.path.join(BASE_DIR, "persona.json")
 FACTS_FILE = os.path.join(BASE_DIR, "facts.json")
-
-import hashlib
 
 def file_hash(path):
     with open(path, "rb") as f:
@@ -634,89 +627,62 @@ st.markdown("""
 
 
 if audio_value:
-    
-    # Using a placeholder or spinner that doesn't block the UI heavily
     with st.spinner("Listening..."):
         try:
-            
-            suffix = ".wav"
-            
-            with tempfile.NamedTemporaryFile(delete=False, suffix=suffix) as tmp_audio:
+            with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as tmp_audio:
                 tmp_audio.write(audio_value.read())
                 tmp_audio_path = tmp_audio.name
-            
-            with open(tmp_audio_path, "rb") as audio_file:
-                transcription = groq_client.audio.transcriptions.create(
-                    model="whisper-large-v3-turbo", 
-                    file=audio_file,
-                    response_format="text"
-                )
-            
-   
-            if hasattr(transcription, 'text'):
-                user_text = transcription.text
-            else:
-                user_text = str(transcription)
 
+            try:
+                with open(tmp_audio_path, "rb") as audio_file:
+                    transcription = groq_client.audio.transcriptions.create(
+                        model="whisper-large-v3-turbo",
+                        file=audio_file,
+                        response_format="text"
+                    )
+            except Exception as groq_err:
+                with open(tmp_audio_path, "rb") as audio_file:
+                    transcription = openai_audio_client.audio.transcriptions.create(
+                        model="whisper-1",
+                        file=audio_file,
+                        response_format="text"
+                    )
+
+            user_text = transcription.text if hasattr(transcription, 'text') else str(transcription)
             os.remove(tmp_audio_path)
-            
+
         except Exception as e:
             st.error(f"Audio processing failed: {e}")
             user_text = None
 
     if user_text and user_text.strip():
-        # Add User Message
         st.session_state.messages.append({"role": "user", "content": user_text})
-        
-        
+
         with st.spinner("Thinking..."):
             try:
-                # Chat Completion
-                response = client.chat.completions.create(
-                    model="gpt-4o-mini",
+                response = groq_client.chat.completions.create(
+                    model="llama-3.3-70b-versatile",
                     messages=st.session_state.messages,
                     temperature=0.7,
-                    max_tokens=250 # Keep it concise for voice
+                    max_tokens=250
                 )
                 bot_text = response.choices[0].message.content
                 st.session_state.messages.append({"role": "assistant", "content": bot_text})
-                # 3. Generate Audio (ElevenLabs)
-                # Set flag to trigger scroll after message is rendered
                 st.session_state.scroll_after_message = True
-                
-                audio_generator = elevenlabs_client.text_to_speech.convert(
-                    text=bot_text,
-                    voice_id="WU3NNr4InTpWBvdLxgpD", 
-                    model_id="eleven_turbo_v2_5"
-                )
-                
-                # Consume generator to get bytes
-                audio_bytes = b"".join(audio_generator)
-                
-                # Store audio in session state for autoplay
+
+                audio_bytes = asyncio.run(_synthesize_speech(bot_text))
                 st.session_state.current_audio = audio_bytes
-                
-                # Increment key to reset audio widget
                 st.session_state.input_key += 1
-                
-                # Rerun to update UI with new messages
                 st.rerun()
-                
+
             except Exception as e:
                 st.error(f"Error: {e}")
 
-# Autoplay Audio Logic
 if "current_audio" in st.session_state and st.session_state.current_audio:
-    # Play Audio
     st.audio(st.session_state.current_audio, format="audio/mp3", autoplay=True)
-    
-    # Clear audio from state for next run
-    del st.session_state.current_audio 
+    del st.session_state.current_audio
 
-# Force Scroll to Bottom whenever there are messages 
 if len(st.session_state.messages) > 1:
-    # Check if we just added a new assistant message (scroll needed)
-    scroll_needed = "scroll_after_message" in st.session_state and st.session_state.scroll_after_message
     
     components.html(
         """

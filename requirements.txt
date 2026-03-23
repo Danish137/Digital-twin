@@ -1,5 +1,5 @@
 streamlit
-elevenlabs
+edge-tts
 python-dotenv
 openai
 groq
