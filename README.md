@@ -1,42 +1,40 @@
 # Talk to Danish - Voice Agent
 
-A high-fidelity conversational voice agent that acts as my digital twin. This project uses a hybrid architecture leveraging **Groq** for ultra-fast Whisper transcription, **GPT-4o-mini** for intelligence, and **ElevenLabs** for realistic voice synthesis.
+A conversational voice agent that acts as my digital twin. Speak a question and get a natural voice response — fully free to run, no paid APIs required.
+
 ## 🧠 Talk to my AI twin
-Click below and speak:
 
 [Launch Live Demo](https://digital-twin-danish.streamlit.app/)
-
 
 ## ✨ Features
 
 - **🗣️ Natural Voice Interaction**: Seamless "Speak → Audio Response" loop.
-- **⚡ Ultra-Low Latency**: Uses Groq `whisper-large-v3-turbo` for near-instant transcription.
+- **⚡ Ultra-Low Latency**: Groq `whisper-large-v3-turbo` for near-instant transcription.
 - **🧠 Custom Persona**: Grounded in specific facts (`facts.json`) and personality traits (`persona.json`).
-- **🎨 "Disappearing UI"**: A minimalist, dark-themed interface designed to feel like a native app, not a web page.
-- **🔊 ElevenLabs Integration**: for text to speech.
+- **🎨 Minimalist UI**: Dark-themed interface designed to feel like a native app, not a web page.
+- **🔊 Free TTS**: Microsoft neural voices via `edge-tts` — no API key or billing required.
 
 ## 🛠️ Tech Stack
 
-- **Frontend**: [Streamlit](https://streamlit.io/) (Custom CSS)
-- **STT (Speech-to-Text)**: [Groq](https://groq.com/) (Whisper V3 Turbo)
-- **LLM (Intelligence)**: [OpenAI](https://openai.com/) (GPT-4o-mini)
-- **TTS (Text-to-Speech)**: [ElevenLabs](https://elevenlabs.io/)
+| Layer | Service | Notes |
+|---|---|---|
+| **Frontend** | [Streamlit](https://streamlit.io/) | Custom CSS, fixed mic dock |
+| **STT** | [Groq](https://groq.com/) Whisper V3 Turbo | Free tier, falls back to OpenAI Whisper |
+| **LLM** | [Groq](https://groq.com/) Llama 3.3 70B | Free tier |
+| **TTS** | [edge-tts](https://github.com/rany2/edge-tts) | Microsoft neural voices, completely free |
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 
 - Python 3.8+
-- API Keys for:
-  - Groq
-  - ElevenLabs
-  - OpenAI
+- API keys for Groq and OpenAI (free tiers work)
 
 ### Installation
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/Digital-twin.git
+   git clone https://github.com/Danish137/Digital-twin.git
    cd Digital-twin
    ```
 
@@ -45,16 +43,14 @@ Click below and speak:
    pip install -r requirements.txt
    ```
 
-3. **Set up Environment Variables**
-   Rename `.envexample` to `.env` in the root directory and add your API keys:
+3. **Set up environment variables**
+   Copy `.envexample` to `.env` and fill in your keys:
    ```env
    OPENAI_API_KEY=sk-xxxxxx
-   OPENAI_BASE_URL=
    GROQ_API_KEY=gsk_xxxxxx
-   ELEVENLABS_API_KEY=xxxxxx
    ```
 
-4. **Run the App**
+4. **Run the app**
    ```bash
    streamlit run app.py
    ```
@@ -65,19 +61,18 @@ Click below and speak:
 .
 ├── app.py                # Main application logic
 ├── facts.json            # Knowledge base for the digital twin
-├── persona.json          # Personality definition and system prompts
+├── persona.json          # Personality and system prompt config
 ├── requirements.txt      # Python dependencies
-├── .env                  # API keys
-└── README.md             
+├── .envexample           # Environment variable template
+└── README.md
 ```
 
 ## 🎨 Design Philosophy
 
 The interface follows a "Conversation First" design:
-
 - **No distractions**: Header, footer, and sidebar are hidden.
 - **Focus**: The latest response is highlighted; older messages fade out.
-- **Interactivity**: A custom fixed microphone dock allows for single-tap interaction.
-- **Multi-turn conversation**: The agent can remember the context of the conversation and respond accordingly.
+- **Interactivity**: A custom fixed microphone dock allows single-tap interaction.
+- **Multi-turn**: The agent maintains full conversation context.
 
-## 📝 NOTE: This is not a completed project , I am working on it.
+## 📝 Feel free to contribute or suggest improvements.
