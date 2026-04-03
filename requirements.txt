@@ -1,6 +1,20 @@
-streamlit
-edge-tts
+# LiveKit Agents (real-time voice pipeline)
+livekit-agents>=1.0.0
+livekit-plugins-deepgram>=1.0.0
+livekit-plugins-groq>=1.0.0
+livekit-plugins-cartesia>=1.0.0
+livekit-plugins-silero>=1.0.0
+livekit-plugins-turn-detector>=1.0.0
+livekit-api>=1.0.0
 python-dotenv
-openai
-groq
+
+# Web frontend server
+fastapi
+uvicorn[standard]
+
+# Old Streamlit app (app.py) dependencies — uncomment if needed:
+# streamlit
+# edge-tts
+# openai
+# groq
 

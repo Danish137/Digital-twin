@@ -1,8 +1,12 @@
 __pycache__/
 .Python
 venv/
+.venv/
 .streamlit/
 .vscode/
 .idea/
 .DS_Store
 .env
+
+# LiveKit model files
+*.onnx
