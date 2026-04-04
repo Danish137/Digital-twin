@@ -4,9 +4,8 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 from livekit import agents
-from livekit.agents import AgentServer, AgentSession, Agent, TurnHandlingOptions
+from livekit.agents import AgentServer, AgentSession, Agent
 from livekit.plugins import groq, silero
-from livekit.plugins.turn_detector.multilingual import MultilingualModel
 
 load_dotenv()
 
@@ -71,9 +70,6 @@ async def entrypoint(ctx: agents.JobContext):
         llm=groq.LLM(model="llama-3.3-70b-versatile", temperature=0.7),
         tts="cartesia/sonic-3",
         vad=silero.VAD.load(),
-        turn_handling=TurnHandlingOptions(
-            turn_detection=MultilingualModel(),
-        ),
     )
 
     await session.start(
