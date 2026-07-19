@@ -28,7 +28,7 @@ A conversational voice agent that acts as my digital twin. Speak a question and 
 ### Prerequisites
 
 - Python 3.8+
-- API keys for Groq and OpenAI (free tiers work)
+- API keys for Groq and OpenAI
 
 ### Installation
 
