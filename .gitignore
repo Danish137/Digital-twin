@@ -1,8 +1,12 @@
 __pycache__/
+*.pyc
 .Python
 venv/
+.venv/
 .streamlit/
 .vscode/
 .idea/
 .DS_Store
 .env
+*.onnx
+decisions.md

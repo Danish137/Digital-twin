@@ -1,6 +1,0 @@
-streamlit
-edge-tts
-python-dotenv
-openai
-groq
-
