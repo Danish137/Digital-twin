@@ -158,16 +158,17 @@ async def entrypoint(ctx: agents.JobContext):
 # ---------------------------------------------------------------------------
 
 if __name__ == "__main__":
-    try:
-        _require_env(
-            "LIVEKIT_URL",
-            "LIVEKIT_API_KEY",
-            "LIVEKIT_API_SECRET",
-            "GOOGLE_API_KEY",
-        )
-    except Exception as e:
-        logger.error("Initialization failed: %s", e)
-        sys.exit(1)
+    if "download-files" not in sys.argv and "--help" not in sys.argv:
+        try:
+            _require_env(
+                "LIVEKIT_URL",
+                "LIVEKIT_API_KEY",
+                "LIVEKIT_API_SECRET",
+                "GOOGLE_API_KEY",
+            )
+        except Exception as e:
+            logger.error("Initialization failed: %s", e)
+            sys.exit(1)
 
     agents.cli.run_app(server)
 
