@@ -10,3 +10,8 @@ venv/
 .env
 *.onnx
 decisions.md
+backend/token_server/.wrangler/
+backend/token_server/.venv/
+backend/token_server/__pycache__/
+backend/token_server/python_modules/
+**/__pycache__/

@@ -1,0 +1,19 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "digital-twin-token-api",
+  "main": "main.py",
+  "compatibility_date": "2026-09-17",
+  "compatibility_flags": [
+    "python_workers"
+  ],
+  "vars": {
+    "LIVEKIT_URL": "wss://test.livekit.cloud",
+    "LIVEKIT_AGENT_NAME": "digital-twin"
+  },
+  "secrets": {
+    "required": [
+      "LIVEKIT_API_KEY",
+      "LIVEKIT_API_SECRET"
+    ]
+  }
+}

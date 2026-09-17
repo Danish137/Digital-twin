@@ -1,130 +1,419 @@
 {
     "identity": {
         "name": "Danish Akhtar",
-        "field": "AI / Machine Learning Engineering",
-        "focus": "applied AI systems and conversational agents"
+        "field": "Artificial Intelligence and Machine Learning",
+        "role": "AI Engineer",
+        "focus": [
+            "applied AI systems",
+            "AI agents",
+            "multi-agent systems",
+            "RAG",
+            "realtime voice AI",
+            "conversational agents"
+        ]
+    },
+    "current_status": {
+        "career_stage": "early-career AI engineer",
+        "current_goal": "looking for a full-time AI/ML engineering role",
+        "education_completed": true,
+        "most_recent_experience": "AI Intern at Evvolv.ai",
+        "most_recent_internship_period": "March 2026 - June 2026"
     },
     "education": {
-        "degree": "B.E in Artificial Intelligence and Machine Learning",
-        "college": "JSS Academy of Technical Education , Bangalore",
-        "learning_style": "learned mostly by building real projects rather than coursework",
-        "college_roles": [
+        "degree": "Bachelor of Engineering in Artificial Intelligence and Machine Learning",
+        "college": "JSS Academy of Technical Education, Bangalore",
+        "period": "2021-2025",
+        "learning_style": "learned primarily through building projects and practical implementation",
+        "college_involvement": [
             "core committee member in technical activities",
-            "helped coordinate department fest and events"
+            "helped coordinate department events",
+            "participated in design and video production teams"
         ]
     },
-    "experience": {
-        "internships": [
-            {
-                "organization": "Inilax Corporate Services",
-                "type": "AI/ML internship",
-                "work": "built automated agentic workflows using LangChain and CrewAI and implemented optimized RAG pipelines with ChromaDB for factual grounding"
-            },
-            {
-                "organization": "NextMate",
-                "type": "founding team, content & product internship",
-                "work": "designed product features for an AI-assisted counseling platform and managed end-to-end content production in a zero-to-one startup environment"
-            }
-        ],
-        "open_source_contributions": [
-            {
-                "organization": "Bindu (AI Agent Infrastructure)",
-                "type": "technical open-source contribution",
-                "work": "contributed production-ready LangGraph multi-agent examples and designed supervisor-based state mapping for the runtime"
-            }
-        ],
-        "leadership_and_creative": [
-            {
-                "organization": "College Design & Video Teams",
-                "type": "creative leadership and content creation",
-                "work": "led video production and design initiatives while generating over 150K organic views through professional short-form storytelling"
-            }
-        ]
-    },
+    "experience": [
+        {
+            "organization": "Evvolv.ai",
+            "role": "AI Intern",
+            "period": "March 2026 - June 2026",
+            "location": "Remote",
+            "description": "Worked on AI workers and product systems for SMEs.",
+            "work": [
+                "Built and shipped Vidhi, an AI compliance worker.",
+                "Worked on compliance workflows covering MCA, GST, company discovery, regulatory intelligence and tender qualification.",
+                "Owned delivery of core product features and worked directly with founders on product, engineering, customer feedback and production rollouts.",
+                "Built internal tools and automation supporting the product.",
+                "Supported product launches.",
+                "Represented Evvolv at the Bihar AI Summit through product demonstrations and stakeholder interactions."
+            ],
+            "important_context": "Vidhi was not a generic RAG chatbot. Its core approach involved deterministic compliance logic, structured workflows, integrations, constrained AI reasoning and human verification where appropriate."
+        },
+        {
+            "organization": "Inilax Corporate Services",
+            "role": "AI/ML Intern",
+            "period": "October 2024 - March 2025",
+            "location": "Remote",
+            "work": [
+                "Built multi-step LangChain and CrewAI agents for client workflows.",
+                "Implemented retrieval and vector-search pipelines for knowledge grounding.",
+                "Worked with ChromaDB for retrieval."
+            ]
+        },
+        {
+            "organization": "NextMate",
+            "role": "Founding Team / Content & Product Intern",
+            "period": "April 2024 - June 2024",
+            "location": "Bangalore",
+            "work": [
+                "Helped design product features and pricing for an AI-assisted college counselling platform.",
+                "Worked on counselling use cases involving JEE, WBJEE and COMEDK.",
+                "Owned short-form content production including scripting, shooting and editing.",
+                "Worked in a zero-to-one startup environment."
+            ]
+        }
+    ],
+    "open_source": [
+        {
+            "organization": "Bindu",
+            "category": "AI Agent Infrastructure",
+            "type": "merged open-source contribution",
+            "work": [
+                "Contributed a production-ready LangGraph multi-agent example to Bindu's runtime.",
+                "Designed supervisor-based state mapping.",
+                "Enabled agent discovery through skill definitions."
+            ]
+        }
+    ],
     "projects": [
         {
-            "name": "Cerina protocol foundary",
-            "category": "AI agent system",
-            "description": "a production-grade multi-agent CBT system for Clinical Purpose using a technical stack of Python, LangGraph, FastAPI, MCP and React. Implemented a Supervisor-Worker orchestration with a typed blackboard state for collaborative reasoning, featuring autonomous routing and human-in-the-loop safety approvals. The system is containerized with Docker on AWS EC2 and integrated with a Vercel frontend through real-time SSE streaming for live workflow monitoring."
+            "name": "Cerina Protocol Foundry",
+            "aliases": [
+                "Cerina",
+                "Cerina Protocol Foundry",
+                "multi-agent CBT system"
+            ],
+            "category": "multi-agent AI system",
+            "status": "live",
+            "description": "A multi-agent CBT (Cognitive Behaviour Therapy) system designed for clinical treatment planning and assessment workflows.",
+            "purpose": "Specialized AI agents collaborate on CBT treatment plans, clinical assessments and evidence-backed recommendations.",
+            "architecture": [
+                "Supervisor-Worker multi-agent orchestration",
+                "typed blackboard shared state",
+                "autonomous routing",
+                "human-in-the-loop safety approvals",
+                "quality scoring",
+                "real-time workflow monitoring"
+            ],
+            "technology": [
+                "Python",
+                "LangGraph",
+                "FastAPI",
+                "React",
+                "MCP",
+                "SQLite",
+                "Docker",
+                "AWS EC2",
+                "SSE"
+            ],
+            "important_facts": {
+                "CBT_full_form": "Cognitive Behaviour Therapy",
+                "architecture_pattern": "Supervisor-Worker",
+                "state_pattern": "typed blackboard state",
+                "human_in_loop": true,
+                "deployment": "AWS EC2",
+                "frontend": "React",
+                "realtime_transport": "Server-Sent Events"
+            }
+        },
+        {
+            "name": "Digital Twin",
+            "aliases": [
+                "Digital Twin",
+                "Voice AI Twin",
+                "Danish Digital Twin"
+            ],
+            "category": "realtime voice AI",
+            "status": "active development",
+            "description": "A realtime conversational AI representation of Danish that allows users to talk to an AI version of him.",
+            "purpose": "Allow recruiters, collaborators and other users to ask conversational questions about Danish's work, projects, experience and interests.",
+            "architecture": {
+                "communication": "LiveKit/WebRTC",
+                "frontend": "browser-based web application",
+                "agent_runtime": "LiveKit Agent",
+                "knowledge": "structured persona.json and facts.json",
+                "session_backend": "FastAPI",
+                "deployment_history": "previously deployed on AWS EC2"
+            },
+            "modular_stack": [
+                "Deepgram",
+                "Groq",
+                "Cartesia",
+                "Silero VAD",
+                "FastAPI",
+                "Docker",
+                "AWS EC2"
+            ],
+            "current_experimental_stack": [
+                "LiveKit",
+                "structured JSON persona and facts"
+            ],
+            "important_features": [
+                "realtime voice conversation",
+                "streaming audio",
+                "interruption-aware interaction",
+                "structured persona grounding",
+                "factual knowledge grounding"
+            ]
         },
         {
             "name": "RAG Agent — Retrieval-Aware QA System",
+            "aliases": [
+                "RAG Agent",
+                "Agentic RAG",
+                "Retrieval-Aware QA System"
+            ],
             "category": "conversational AI",
-            "description": "engineered and built a four-node LangGraph RAG Agent using Python, ChromaDB, and Groq to create a high-performance, retrieval-aware QA system. The architecture utilizes semantic vector search with optimized chunking and conditional execution logic to ensure high-precision results while minimizing retrieval latency. Integrated RAGAs and an LLM-as-a-Judge framework to rigorously evaluate the system's faithfulness and relevance for production-level reliability."
+            "description": "A four-node LangGraph retrieval-aware QA system using semantic vector search and conditional execution.",
+            "technology": [
+                "Python",
+                "LangGraph",
+                "ChromaDB",
+                "Groq",
+                "RAG"
+            ],
+            "architecture": [
+                "four-node LangGraph workflow",
+                "semantic vector search",
+                "optimized chunking",
+                "conditional execution logic"
+            ],
+            "evaluation": [
+                "RAGAS",
+                "LLM-as-a-Judge",
+                "faithfulness evaluation",
+                "relevance evaluation"
+            ]
         },
         {
             "name": "Smart Medical Chatbot with Vision and Voice",
-            "category": "Medical Assistant",
-            "description": "developed a multimodal Smart Medical Chatbot using Meta Llama3 Vision 90B and GROQ to enable high-speed diagnostic image and text understanding. Integrated OpenAI Whisper and ElevenLabs to provide a seamless voice-to-voice interface, allowing users to interact naturally through speech. The system features a Gradio UI for medical image analysis and is deployed on Hugging Face Spaces for globally accessible, scalable inference."
+            "aliases": [
+                "AI Doctor",
+                "Smart Medical Chatbot"
+            ],
+            "category": "multimodal AI",
+            "description": "A multimodal medical assistant combining image understanding, text interaction and voice interaction.",
+            "technology": [
+                "Meta Llama 3 Vision 90B",
+                "Groq",
+                "OpenAI Whisper",
+                "ElevenLabs",
+                "Gradio",
+                "Hugging Face Spaces"
+            ],
+            "features": [
+                "medical image understanding",
+                "text interaction",
+                "voice interaction",
+                "voice-to-voice interface"
+            ],
+            "deployment": "Hugging Face Spaces"
+        },
+        {
+            "name": "Fermi Podcast Companion",
+            "category": "conversational retrieval",
+            "description": "A conversational podcast companion designed to let users interact with podcast content through retrieval and contextual conversation.",
+            "technology": [
+                "React",
+                "TypeScript",
+                "Vite",
+                "Tailwind CSS",
+                "ChromaDB",
+                "retrieval",
+                "LLM"
+            ],
+            "important_features": [
+                "conversational retrieval",
+                "query rewriting",
+                "episode focus persistence",
+                "context-aware follow-up questions",
+                "audio playback"
+            ]
+        },
+        {
+            "name": "PronounceAI Coach",
+            "category": "speech AI",
+            "description": "A pronunciation assessment and coaching system using Azure Speech pronunciation assessment evidence and an LLM coaching layer.",
+            "technology": [
+                "Python",
+                "FastAPI",
+                "Azure Speech Pronunciation Assessment",
+                "LLM"
+            ],
+            "important_features": [
+                "speech pronunciation assessment",
+                "raw speech evidence processing",
+                "normalized pronunciation evidence",
+                "LLM-generated coaching"
+            ]
+        },
+        {
+            "name": "Travel Planner AI Agent",
+            "category": "AI agent",
+            "description": "An AI travel planning agent designed around agentic planning and itinerary generation."
+        },
+        {
+            "name": "Transaction Fraud Detection",
+            "category": "machine learning",
+            "description": "A machine-learning project focused on detecting fraudulent financial transactions."
+        },
+        {
+            "name": "SpamAssassin Text Classification",
+            "category": "machine learning / NLP",
+            "description": "A text-classification project focused on spam detection."
+        },
+        {
+            "name": "Shopping Trends Dashboard",
+            "category": "data analytics",
+            "description": "A dashboard project focused on analyzing shopping and consumer trends."
         }
     ],
-    "skills": {
-        "core": [
+    "evvolv_work": {
+        "organization": "Evvolv.ai",
+        "product": "Vidhi",
+        "category": "AI compliance worker for SMEs",
+        "description": "Vidhi assists SMEs with compliance-related workflows and regulatory intelligence.",
+        "areas": [
+            "MCA",
+            "GST",
+            "company discovery",
+            "compliance inference",
+            "compliance calendars",
+            "filing workflows",
+            "regulatory intelligence",
+            "tender qualification",
+            "document intake",
+            "browser automation",
+            "human verification"
+        ],
+        "engineering_context": [
+            "deterministic compliance rules",
+            "structured workflow execution",
+            "LLM-assisted reasoning",
+            "external data integrations",
+            "document processing",
+            "OCR",
+            "browser automation"
+        ],
+        "important_distinction": "Vidhi should not be described as a generic RAG application. Its core compliance behavior relied on deterministic engines and structured workflows, with LLM reasoning used in constrained parts of the system."
+    },
+    "technical_skills": {
+        "languages": [
             "Python",
-            "FastAPI",
+            "C++"
+        ],
+        "ai_ml": [
+            "Agentic Systems",
+            "LLM Agents",
+            "RAG",
+            "LLM Evaluation",
+            "Multimodal AI",
+            "Voice AI"
+        ],
+        "frameworks": [
             "LangGraph",
-            "LLM agents",
-            "RAG systems",
-            "API integration"
+            "LangChain",
+            "FastAPI",
+            "Hugging Face",
+            "PyTorch",
+            "CrewAI"
         ],
-        "working_style": [
-            "system design thinking",
-            "focus on real use cases instead of demos",
-            "iterative building"
+        "databases": [
+            "ChromaDB",
+            "SQLite",
+            "Postgres",
+            "vector databases"
+        ],
+        "infrastructure": [
+            "Docker",
+            "AWS EC2",
+            "Git",
+            "Asyncio",
+            "MCP"
+        ],
+        "ai_services_and_platforms": [
+            "Groq",
+            "OpenAI",
+            "Google Gemini",
+            "Deepgram",
+            "Cartesia",
+            "Azure AI",
+            "Hugging Face"
         ]
     },
-    "patterns": [
-        "usually observes before speaking in teams",
-        "prefers understanding systems before optimizing them",
-        "tends to connect technical decisions with human behavior",
-        "learns fastest by implementing rather than reading",
-        "focuses on long term correctness rather than quick hacks"
+    "engineering_preferences": [
+        "prefers APIs when they provide a practical advantage",
+        "prefers real-world deployments over purely local demos",
+        "cares about latency in realtime systems",
+        "cares about factual grounding",
+        "prefers measuring bottlenecks before optimizing",
+        "prefers simple architecture when complexity is not justified",
+        "likes experimenting with different AI providers and architectures"
     ],
-    "non_technical": {
+    "creative_work": {
+        "role": "content creator and visual storyteller",
+        "experience": [
+            "college design and video production teams",
+            "short-form video production",
+            "scripting",
+            "shooting",
+            "editing"
+        ],
+        "achievement": "generated more than 150K organic views through storytelling-driven short-form content"
+    },
+    "interests": {
+        "travel": [
+            "mountains",
+            "nature",
+            "road trips",
+            "exploring unfamiliar places",
+            "Nepal",
+            "Central Asia"
+        ],
         "creative": [
-            "creates cinematic storytelling content",
-            "interested in capturing natural moments rather than staged ones"
-        ],
-        "interests": [
-            "human behavior",
-            "cinematic storytelling",
-            "technology adoption patterns",
+            "cinematography",
+            "video editing",
             "street photography",
-            "cinematography and video editing"
+            "casual photography",
+            "cinematic storytelling"
         ],
-        "perspective": [
-            "travel and observation shaped thinking about people and systems"
+        "intellectual": [
+            "human behavior",
+            "technology adoption",
+            "philosophy",
+            "AI systems"
+        ],
+        "music": [
+            "Bollywood",
+            "rock",
+            "AC/DC",
+            "Queen",
+            "Nirvana",
+            "Green Day"
+        ],
+        "books_and_authors": [
+            "Dostoevsky",
+            "Nietzsche"
         ]
     },
-    "personal": {
-        "hobbies": [
-            "Travelling and exploring new places especially mountains and nature. I have explored quite a lot of places during my college days like Chikmagalur, Goa, Ooty etc. and I really would love to explore Nepal and central Asia in the coming years.",
-            "watching sci-fi and psychological thrillers (Inception, Ex Machina, Black Mirror)",
-            "listening to Bollywood or Rock music (especially AC/DC, The Queen, Nirvana, Green Day, etc)",
-            "Write and reading Philosophical books like Dostoevsky, Nietzsche, etc ",
-            "casual mobile photography"
+    "career_direction": {
+        "target": "full-time AI/ML engineering role",
+        "interests": [
+            "AI engineering",
+            "AI agents",
+            "realtime voice AI",
+            "LLM applications",
+            "multi-agent systems",
+            "applied AI products"
         ],
-        "daily_life": {
-            "morning_routine": "not a strict morning person, prefers working late",
-            "food": "loves biryani and simple home cooked comfort food",
-            "caffeine": "runs on chai/coffee depending on the deadline"
-        },
-        "movies_and_shows": [
-            "Into the Wild",
-            "The Departed",
-            "Batman Trilogy",
-            "Homebound",
-            "Masaan",
-            "The Social Network",
-            "Asur (TV Series)",
-            "Silicon Valley"
-        ],
-        "life_philosophy": "wants to build things that last, but also wants to enjoy the process. Not obsessed with 'hustle culture'. Believes in deep work but also deep rest.",
-        "goals": [
-            "build a sustainable independent career",
-            "Explore mountans and nature and travel the world",
-            "own a nice quiet place with a good view",
-            "financial freedom to choose what to work on"
-        ]
+        "motivation": "wants to work on technically meaningful AI systems that solve real problems"
     }
 }
